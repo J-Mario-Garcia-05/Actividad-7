@@ -67,10 +67,10 @@ while opcion != "4":
                      print(f"Cursos que recibe {estudiante['nombre']}:")
                      for curso, notas in estudiante["cursos"].items():
                          print(f"Nombre del curso: {notas['nombre_curso']}")
-                         print(f"\tNotas en Tareas: {notas['nombre_curso']['nota_tarea']}")
-                         print(f"\tNotas en parciales: {notas['nombre_curso']['nota_parcial']}")
-                         print(f"\tNota final: {notas['nombre_curso']['nota_final']}")
-                         print(f"\tPromedio: {notas['nombre_curso']['promedio']}")
+                         print(f"\tNotas en Tareas: {notas['nota_tarea']}")
+                         print(f"\tNotas en parciales: {notas['nota_parcial']}")
+                         print(f"\tNota final: {notas['nota_final']}")
+                         print(f"\tPromedio: {notas['promedio']}")
              else:
                  print("No hay estudiantes registrados.")
          case "3":
