@@ -34,8 +34,17 @@ while opcion != "4":
              while i <= cantidad_cursos:
                  nombre_curso = input(f"Curso {i + 1}: ")
                  nota_tarea = float(input("Nota Tarea: "))
+                 if nota_tarea > 100 or nota_tarea < 0:
+                     print("Nota fuera de rango")
+                     continue
                  nota_parcial = float(input("Nota Parcial: "))
+                 if nota_parcial > 100 or nota_parcial < 0:
+                     print("Nota fuera de rango")
+                     continue
                  nota_final = float(input("Nota Final: "))
+                 if nota_final > 100 or nota_final < 0:
+                     print("Nota fuera de rango")
+                     continue
                  estuiantes[carnet]["cursos"][nombre_curso] = {
                      "nota_tarea": nota_tarea,
                      "nota_parcial": nota_parcial,
@@ -43,3 +52,20 @@ while opcion != "4":
                  }
                  i += 1
              print("Se ha registrado con éxito al estudiante")
+         case "2":
+             if estuiantes:
+                 print("Esrtudiantes registrados:")
+                 for carnet, estudiante in estuiantes.items():
+                     print(f"Carnet: {carnet}")
+                     print(f"Nombre: {estudiante['nombre']}, Edad: {estudiante['edad']}, carrera: {estudiante['carrera']}")
+                     print(f"Cursos que recibe {estudiante['nombre']}:")
+                     for curso, notas in estuiantes[estudiante['cursos']].items():
+                         print(f"Nombre del curso: {estudiante['cursos']['nombre_curso']}")
+                         print(f"\tNotas en Tareas: {estudiante['cursos']['nombre_curso']['nota_tarea']}")
+                         print(f"\tNotas en parciales: {estudiante['cursos']['nombre_curso']['nota_parcial']}")
+                         print(f"\tNota final: {estudiante['cursos']['nombre_curso']['nota_final']}")
+             else:
+                 print("No hay estudiantes registrados.")
+         case "3":
+             if estuiantes:
+                 buscar = input("Ingrese el carné del estudiante que desea buscar: ")
