@@ -45,10 +45,12 @@ while opcion != "4":
                  if nota_final > 100 or nota_final < 0:
                      print("Nota fuera de rango")
                      continue
+                 promedio = (nota_tarea + nota_final + nota_parcial) / 3
                  estuiantes[carnet]["cursos"][nombre_curso] = {
                      "nota_tarea": nota_tarea,
                      "nota_parcial": nota_parcial,
                      "nota_final": nota_final,
+                     "promedio": promedio,
                  }
                  i += 1
              print("Se ha registrado con éxito al estudiante")
@@ -64,8 +66,29 @@ while opcion != "4":
                          print(f"\tNotas en Tareas: {estudiante['cursos']['nombre_curso']['nota_tarea']}")
                          print(f"\tNotas en parciales: {estudiante['cursos']['nombre_curso']['nota_parcial']}")
                          print(f"\tNota final: {estudiante['cursos']['nombre_curso']['nota_final']}")
+                         print(f"\tPromedio: {estudiante['curso']['nombre_curso']['promedio']}")
              else:
                  print("No hay estudiantes registrados.")
          case "3":
              if estuiantes:
                  buscar = input("Ingrese el carné del estudiante que desea buscar: ")
+                 if buscar in estuiantes:
+                    print(f"No se encontró algún estudiante que tenga el carné {buscar}")
+                    continue
+                 print("Datos del estudiante:")
+                 for carnet, estudiante in estuiantes.items():
+                     print(f"Carnet: {carnet}")
+                     print(f"Nombre: {estudiante['nombre']}, Edad: {estudiante['edad']}, carrera: {estudiante['carrera']}")
+                     print(f"Cursos que recibe {estudiante['nombre']}:")
+                     for curso, notas in estuiantes[estudiante['cursos']].items():
+                         print(f"Nombre del curso: {estudiante['cursos']['nombre_curso']}")
+                         print(f"\tNotas en Tareas: {estudiante['cursos']['nombre_curso']['nota_tarea']}")
+                         print(f"\tNotas en parciales: {estudiante['cursos']['nombre_curso']['nota_parcial']}")
+                         print(f"\tNota final: {estudiante['cursos']['nombre_curso']['nota_final']}")
+                         print(f"\tPromedio: {estudiante['curso']['nombre_curso']['promedio']}")
+             else:
+                 print("No hay estudiantes registrados.")
+         case "4":
+             print("Saliendo")
+         case __:
+             print("Opción no válida")
