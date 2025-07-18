@@ -42,7 +42,7 @@ while opcion != "4":
                          "cursos": {}
                      }
                      cantidad_cursos = int(input("Cantidad de cursos que recibe, puede recibir un maximo de 10 cursos: "))
-                     if cantidad_cursos > 10 or cantidad_cursos < 1:
+                     if cantidad_cursos > 10 or cantidad_cursos < 0:
                          print("Cantidad de cursos ingresado no valido, repita nuevamente el ingreso.")
                          continue
                      i = 1
